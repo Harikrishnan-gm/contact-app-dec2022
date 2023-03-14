@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Coda+Caption:wght@800&family=DM+Serif+Text:ital@1&family=Dancing+Script:wght@400;500;600;700&family=Indie+Flower&family=Inspiration&family=Kalam:wght@300&family=Lobster&family=Mynerve&family=Overpass:ital,wght@1,700&family=Pacifico&family=Permanent+Marker&family=Raleway:ital,wght@0,100;0,200;1,100&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,100;1,300;1,500;1,900&family=Rubik+Bubbles&family=Russo+One&family=Secular+One&family=Shantell+Sans:wght@300&family=Yellowtail&family=Yeon+Sung&display=swap');
+
+
+body{
+    font-family: 'Shantell Sans', cursive;
+    background-image: url(https://www.cnil.fr/sites/default/files/styles/contenu-generique-visuel/public/thumbnails/image/telephone_fixe_jaune-bleu_0.png?itok=odh7PGGN);
+    background-size: cover;
+}

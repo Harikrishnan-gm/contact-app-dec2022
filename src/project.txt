@@ -1,0 +1,78 @@
+
+            Contact Managment APP-work flow
+            -----------------------------------
+
+    1.Create a project 
+    2.Run project
+    3.remove all components from appcomponent.html
+    4.configure external libraries: google fonhts,font awesome,bootstrap ion index
+    5.Create components needed for this website
+        ng g c name
+        -all contacts
+        -add contact
+        -edit contact
+        -view contact
+        -page not foung
+    6.Setup path for all components
+        -   app.routing-module.ts
+            all-contact  in **const route [{}]**
+            syntaxt:  // edit contact
+                    path:'edit-contact/:id',component:EditContactComponent
+                    },
+                    {
+                    path:'view-contact/:id',component:ViewContactComponent
+                    }
+    7.use selector outlet in  appcomponent.html
+       
+            <router outlet>
+    8.design component html all contact page
+        for add navbar for all pages:
+                        add component navbar
+                        select selector from  navbar from navbar components and add to app component before router outerlet
+            view contact html page design
+        use router link for button
+       -- node server used for js
+            json server using for run json data for API
+            .new folder for server,
+                then cmd > npm init
+                    npm i json-server --for json 
+                    then go to jsonplaceholder 
+                    then on package.json      "start": "json-server --watch db.json -p 3000"
+                    then json.db
+                    then terminal npm start
+    9.Create angular service to call api
+        first in service
+        then import HttpClientModule to  modules 
+        Dependancy Inject HttpClient to get http request
+        then in allcontact page(constructor)
+            ngOnInit()
+                        eg:   export class AllContactComponent  implements OnInit{
+                                constructor (private api:ApiService){
+
+                                }
+                                ngOnInit(): void {
+                                this.api.allContacts().
+                                subscribe((result:any)=>{
+                                    console.log(result);
+                                    
+                                })
+    10.API call 
+    11.ActivatedRoute class for takes params from url parameter
+                in ViewContactComponent.ts
+                export class ViewContactComponent implements OnInit {
+                
+                            constructor(private activatedRoute:ActivatedRoute){
+
+                            }
+
+                            ngOnInit(): void {
+                                this.activatedRoute.params.subscribe((data:any)=>{
+                                console.log(data.id);
+                            })
+                            }
+
+                            }
+    12.Angular Pipe : convert user input 
+            create pipe in cmd ng g p please refer angular.txt
+    13.Create Model for store contact
+    14.

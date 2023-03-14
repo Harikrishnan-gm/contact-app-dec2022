@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 align-center">
+            <h2>Edit Contact <i class="fa-solid fa-user-plus me-2"></i></h2>
+        </div>
+        <div class="col-md-7 "></div>
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo soluta esse iusto eaque temporibus autem rerum libero quia eos rem, voluptas officia eveniet possimus explicabo error minus vitae quae neque?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe a placeat porro odit dolore aliquid asperiores vitae magnam, qui deleniti. Quis sint fugiat aut quam delectus porro atque provident laudantium. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis aspernatur mollitia temporibus magni cupiditate consequuntur fugit reprehenderit, minus suscipit voluptas eveniet! Similique voluptas minus enim dolore nulla, porro voluptatum obcaecati?
+    </p>
+
+    
+</div>
+<!-- <pre>
+    {{contacts | json}}
+</pre> -->
+<!-- contact form -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <form #editContactForm="ngForm" class="form-control" >
+                <div class="mb-2">
+                    <input name="id" #id="ngModel" [(ngModel)]="contacts.id"  placeholder="Contact id" class="form-control" type="text" required >
+                </div>
+                <div *ngIf="id.touched && id.invalid " class="text-danger">Please Enter Valid</div>
+                <div class="mb-2">
+                    <input name="name" #name="ngModel" [(ngModel)]="contacts.name"  placeholder="name" class="form-control" type="text" required="">
+                </div>
+                <div *ngIf="name.touched && name.invalid " class="text-danger">Please Enter Valid</div>
+
+                <div class="mb-2">
+                    <input name="photo" #photo="ngModel" [(ngModel)]="contacts.photo"  placeholder="Contact image Url" class="form-control" type="text" required="" >
+                </div>
+                <div *ngIf="photo.touched && photo.invalid " class="text-danger">Please Enter Valid</div>
+
+                <div class="mb-2">
+                    
+                    <input name="email" #email="ngModel" email [(ngModel)]="contacts.email"  placeholder="Email"  class="form-control" type="text" required="" >
+                </div>
+                <div *ngIf="email.touched && email.invalid " class="text-danger">Please Enter Valid</div>
+
+                <div class="mb-2">
+                    <input name="mobile" #mobile="ngModel" minlength="10" maxlength="10" pattern="[0-9]*" [(ngModel)]="contacts.mobile"  placeholder="Mobile Number"  class="form-control" type="text"  required="">
+                </div>
+                <div *ngIf="mobile.touched && mobile.invalid " class="text-danger">Please Enter Valid</div>
+
+                <div class="mb-2">
+                    <input name="company" #company [(ngModel)]="contacts.company"  placeholder="Company NAme" class="form-control" type="text" >
+                </div>
+                <div class="mb-2">
+                    <input name="title" [(ngModel)]="contacts.title"  placeholder="Title" class="form-control" type="text" >
+                </div>
+                
+                <div class="mb-2">
+                    <select  name="groupId" [(ngModel)]="contacts.groupId" class="form-control">
+                        <option  selected hidden disabled>Choose a group</option>
+                        <option  [value]="group.id"  *ngFor="let group of allGroup">{{group.name}}</option>
+                        <!-- <option value="">Friends</option>
+                        <option value="">Collegues</option>
+                        <option value="">Social</option>  this not needed because data viewing by using ngFor--> 
+                    </select>
+                </div>
+                <!-- <div *ngIf="groupId.invalid && groupId.touched   " class="text-danger">Please Enter Valid</div> -->
+
+                <!-- edit button -->
+                <div class="mb-2">
+                    <input (click)="editContact(contacts)" [disabled]="editContactForm.invalid" class="btn btn-success me-2" type="button" value="Update">
+                    <a routerLink="" class="btn btn-danger">Close</a>
+                </div>
+            </form>
+        </div>
+        <div style="border-radius: 5%;border: 2px solid;" class="col-md-3">
+            <!-- image -->
+            <img [src]="contacts.photo" width="80%" height="70%" class="contact_image mt-5"  alt="contact image">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 align-center">
+            <h2>ADD CONTACT <i class="fa-solid fa-user-plus me-2"></i></h2>
+        </div>
+        <div class="col-md-7 "></div>
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo soluta esse iusto eaque temporibus autem rerum libero quia eos rem, voluptas officia eveniet possimus explicabo error minus vitae quae neque?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe a placeat porro odit dolore aliquid asperiores vitae magnam, qui deleniti. Quis sint fugiat aut quam delectus porro atque provident laudantium. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis aspernatur mollitia temporibus magni cupiditate consequuntur fugit reprehenderit, minus suscipit voluptas eveniet! Similique voluptas minus enim dolore nulla, porro voluptatum obcaecati?
+    </p>
+
+    
+</div>
+<pre>
+    {{contact | json}}
+</pre>
+<!-- contact form -->
+<div class="container mt-2 mb-5">
+   
+    <div class="row">
+        <div class="col-md-8">
+            <form #addcontactForm="ngForm" class="form-control" >
+                <div class="mb-2">
+                    <input name="id" #id="ngModel" [(ngModel)]="contact.id" placeholder="Contact id" class="form-control" type="text" required >
+                </div>
+                <div *ngIf="id.invalid && id.touched" class="text-danger">Please enter a valid id</div>
+                <div class="mb-2">
+                    <input   name="name" #name="ngModel" [(ngModel)]="contact.name" placeholder="name" class="form-control" type="text" required >
+                </div>
+                <div *ngIf="name.invalid && name.touched" class="text-danger">Please enter valid name</div>
+                <div class="mb-2">
+                    <input  name="photo" #photo="ngModel" [(ngModel)]="contact.photo" placeholder="Contact image Url" class="form-control" type="text" required="">
+                </div>
+                <div *ngIf="photo.invalid && photo.touched" class="text-danger">Please enter valid url</div>
+
+                <div class="mb-2">
+                    
+                    <input  name="email" #email="ngModel" email="" [(ngModel)]="contact.email" placeholder="Email"  class="form-control" type="text" required="">
+                </div>
+                <div *ngIf="email.invalid && email.touched" class="text-danger">Please enter email</div> 
+
+                <div class="mb-2">
+                    <input  name="mobile" #mobile="ngModel" minlength="10" maxlength="10" pattern="[0-9]*"  [(ngModel)]="contact.mobile"   placeholder="Mobile Number"  class="form-control" type="text" required>
+                </div>
+                <div *ngIf="mobile.invalid && mobile.touched" class="text-danger">Enter valid mobile</div>
+                <div class="mb-2">
+                    <input name="company" #company="ngModel" [(ngModel)]="contact.company"  placeholder="Company NAme" class="form-control" type="text" required="">
+                </div>
+                <div *ngIf="company.invalid && company.touched" class="text-danger">Please enter valid input</div>
+                <div class="mb-2">
+                    <input  name="title" [(ngModel)]="contact.title" placeholder="Title" class="form-control" type="text" >
+                </div>
+                
+                <div class="mb-2">
+                    <select name="groupId" #groupId="ngModel"  [(ngModel)]="contact.groupId" id="" class="form-control" required="">
+                        <option selected hidden disabled>{{contact.groupId}}</option>
+                        <option [value]="group.id" *ngFor="let group of groups">{{group.name}}</option>
+                   
+                    </select>
+                </div>
+                <div *ngIf="groupId.invalid && groupId.touched" class="text-danger">Please select valid group</div>
+                <!-- Add button -->
+                <div class="mb-2">
+                    <input [disabled]="addcontactForm.invalid" (click)="addContact(contact)" class="btn btn-success me-2" type="button" value="create">
+                    <a routerLink="" class="btn btn-danger">Close</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <!-- image -->
+            <img width="100%" height="70%" class="contact_image mt-5" [src]="contact.photo" alt="contact image">
+        </div>
+    </div>
+</div>

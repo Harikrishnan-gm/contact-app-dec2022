@@ -1,0 +1,44 @@
+
+
+                Angular - Front end technology(HTML CSS TS)
+            -basic commands 
+                1.Install angular cli: npm i -g @angular/cli
+                2.Create project : ng new project-name
+                3.Run project : ng serve
+                4.Check angular version : ng v
+                5.to generate component: ng g c component-name eg:register page
+                6.to generate Services : ng g s Service-folder/service-name
+                7.Create Pipe ng g p pipe-folder/pipe-name
+            -Basic building blocks of angular
+                1.Module: Root Module: APpmodule
+                2.Component: html,css,ts : appcomponent
+                3.Decorator
+                4.To setup path for component  : AppRoutingModule in Routes array
+                    {path:'component-path',component:component-name}
+                    use router-outlet  selector in appcomponent.html: To change according to user
+                5.Data binding-Sharing data within a component
+                   -one way binding :data sharing will be held in one direction at a time
+                    -ts to html(view)
+                        -String interpolation: {{property name}} in html
+                        -property binding:[attribute name]='property name'
+                    -Html(view) to ts(component)
+                        -Event Binding:(event name)='function call()'
+                        -Event binding using $event: (event name)='function call($event)'
+                        -Event Binding using template referenece:
+                            #variable-name,(event-name)="function call(variable name)"
+                    -two way binding: data sharing will be held in both side at same time
+                        -using ngModel: [(ngModel)]='property-name' if it is inside a form tag then set name property of that input tag
+                            -import formsModule in appModule
+            6.dependancy Injection : in constructor,
+                syntax: access specifier variable-name :dependant-class-name
+                access-specifier:public,private,protected
+            7.Angular Services    : share common logic between components
+            8.Directives: DOM manipulation
+                component directives
+                Structural directives : to add /remove  html elements based on class property.
+                    *ngFor="let variable-name of array-name"  (Like for of )
+            9
+            10
+            11
+            12.Angular forms
+                
